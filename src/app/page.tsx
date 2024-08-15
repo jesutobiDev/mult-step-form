@@ -18,11 +18,11 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col h-full w-full">
-      <h1 className="text-marineBlue text-4xl font-semibold tracking-wide">
+    <div className="flex flex-col h-auto lg:h-full lg:w-full">
+      <h1 className="text-marineBlue text-4xl font-semibold lg:tracking-wide">
         Personal info
       </h1>
-      <p className="text-coolGray mt-2 tracking-wide">
+      <p className="text-coolGray mt-2 lg:tracking-wide">
         Please provide your name, email address, and phone number.
       </p>
       <form action="">
@@ -78,12 +78,6 @@ export default function Home() {
           />
         </div>
       </form>
-      <Link
-        href="/step-2"
-        className="bg-marineBlue text-magnolia rounded-md py-3 px-7 tracking-wide w-fit text-sm ml-auto mb-5 font-medium hover:opacity-90 transition-all duration-300 ease-in-out mt-auto"
-      >
-        Next Step
-      </Link>
     </div>
   );
 }

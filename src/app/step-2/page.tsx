@@ -87,20 +87,6 @@ const Step2 = () => {
           Yearly
         </p>
       </div>
-      <div className="flex w-full justify-between mb-5 mt-auto">
-        <Link
-          href="/"
-          className="text-coolGray py-3 px-7 tracking-wide w-fit text-sm mb-5 font-medium hover:text-marineBlue transition-all duration-300 ease-in-out"
-        >
-          Go Back
-        </Link>
-        <Link
-          href="/step-3"
-          className="bg-marineBlue text-magnolia rounded-md py-3 px-7 tracking-wide w-fit text-sm mb-5 font-medium hover:opacity-90 transition-all duration-300 ease-in-out"
-        >
-          Next Step
-        </Link>
-      </div>
     </div>
   );
 };
