@@ -14,8 +14,6 @@ const FormNavigation: React.FC = () => {
         return "/step-2";
       case "/step-4":
         return "/step-3";
-      // case "/step-5":
-      //   return "/step-4";
       default:
         return null;
     }
@@ -41,7 +39,7 @@ const FormNavigation: React.FC = () => {
       {currentRoute !== "/" && getPreviousRoute() && (
         <Link
           href={getPreviousRoute() as string}
-          className="text-coolGray tracking-wide w-fit text-sm font-medium hover:text-marineBlue transition-all duration-300 ease-in-out py-7"
+          className="text-coolGray tracking-wide w-fit text-sm font-medium hover:text-marineBlue transition-all duration-300 ease-in-out my-5"
         >
           Go Back
         </Link>
@@ -49,7 +47,7 @@ const FormNavigation: React.FC = () => {
       {currentRoute !== "/step-5" && getNextRoute() && (
         <Link
           href={getNextRoute() as string}
-          className="bg-marineBlue text-magnolia rounded-md py-3 px-7 tracking-wide w-fit text-sm font-medium hover:opacity-90 transition-all duration-300 ease-in-out ml-auto"
+          className="bg-marineBlue text-magnolia rounded-md py-3 px-7 tracking-wide w-fit text-sm font-medium hover:opacity-90 transition-all duration-300 ease-in-out ml-auto my-5"
         >
           Next Step
         </Link>
