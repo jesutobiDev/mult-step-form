@@ -1,8 +1,9 @@
-"use client"
+"use client";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { updateSingleField } from "@/store/slices/personalInfoSlice";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -10,11 +11,45 @@ export default function Home() {
     (state: RootState) => state.personalInfo
   );
 
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const validateFields = () => {
+    let valid = true;
+    const newErrors = { name: "", email: "", phone: "" };
+
+    if (!name) {
+      newErrors.name = "Name is required";
+      valid = false;
+    }
+    if (!email) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+      newErrors.email = "Email is invalid";
+      valid = false;
+    }
+    if (!phone) {
+      newErrors.phone = "Phone number is required";
+      valid = false;
+    } else if (!/^\+?[0-9\s\-]{7,15}$/.test(phone)) {
+      newErrors.phone = "Phone number is invalid";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
   const handleChange = (
     field: "name" | "email" | "phone",
     value: string
   ) => {
     dispatch(updateSingleField({ field, value }));
+    setErrors({ ...errors, [field]: "" });
   };
 
   return (
@@ -34,7 +69,7 @@ export default function Home() {
             Name
           </label>
           <input
-            className="mt-1 block w-full border border-lightGray rounded-md outline-none focus:border-purplishBlue py-3 px-4 text-marineBlue placeholder:text-coolGray font-medium"
+            className={`mt-1 block w-full border ${errors.name ? 'border-red-500' : 'border-lightGray'} rounded-md outline-none focus:border-purplishBlue py-3 px-4 text-marineBlue placeholder:text-coolGray font-medium`}
             type="text"
             id="name"
             name="name"
@@ -42,6 +77,9 @@ export default function Home() {
             value={name}
             onChange={(e) => handleChange("name", e.target.value)}
           />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+          )}
         </div>
         <div className="mt-6">
           <label
@@ -51,7 +89,7 @@ export default function Home() {
             Email address
           </label>
           <input
-            className="mt-1 block w-full border border-lightGray rounded-md outline-none focus:border-purplishBlue py-3 px-4 text-marineBlue placeholder:text-coolGray font-medium"
+            className={`mt-1 block w-full border ${errors.email ? 'border-red-500' : 'border-lightGray'} rounded-md outline-none focus:border-purplishBlue py-3 px-4 text-marineBlue placeholder:text-coolGray font-medium`}
             type="email"
             id="email"
             name="email"
@@ -59,6 +97,9 @@ export default function Home() {
             value={email}
             onChange={(e) => handleChange("email", e.target.value)}
           />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+          )}
         </div>
         <div className="mt-6">
           <label
@@ -68,7 +109,7 @@ export default function Home() {
             Phone Number
           </label>
           <input
-            className="mt-1 block w-full border border-lightGray rounded-md outline-none focus:border-purplishBlue py-3 px-4 text-marineBlue placeholder:text-coolGray font-medium"
+            className={`mt-1 block w-full border ${errors.phone ? 'border-red-500' : 'border-lightGray'} rounded-md outline-none focus:border-purplishBlue py-3 px-4 text-marineBlue placeholder:text-coolGray font-medium`}
             type="tel"
             id="phone-number"
             name="phone-number"
@@ -76,6 +117,9 @@ export default function Home() {
             value={phone}
             onChange={(e) => handleChange("phone", e.target.value)}
           />
+          {errors.phone && (
+            <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+          )}
         </div>
       </form>
     </div>

@@ -33,7 +33,7 @@ const Step2 = () => {
         {plans.map((plan) => (
           <div
             key={plan.name}
-            className={`flex-1 lg:h-44 rounded-xl p-4 flex gap-3 items-center lg:items-start lg:flex-col lg:justify-between border cursor-pointer hover:border-purplishBlue transition-all duration-300 ease-in-out ${
+            className={`flex-1 lg:h-44 rounded-xl p-4 flex gap-4 items-start lg:flex-col lg:justify-between border cursor-pointer hover:border-purplishBlue transition-all duration-300 ease-in-out ${
               plan.name === selectedPlan
                 ? "bg-magnolia border-purplishBlue"
                 : "bg-transparent border-coolGray"
@@ -59,6 +59,11 @@ const Step2 = () => {
                 {"/"}
                 {planDuration === "monthly" ? "mo" : "yr"}
               </p>
+              {
+                planDuration === "yearly" && (
+                  <p className="text-marineBlue text-sm">{plan.discount} months free</p>
+                ) 
+              }
             </div>
           </div>
         ))}

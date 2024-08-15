@@ -10,6 +10,7 @@ interface Plan {
     monthly: number;
     yearly: number;
   };
+  discount: number;
 }
 
 interface PlanState {
@@ -28,6 +29,7 @@ const initialState: PlanState = {
         monthly: 9,
         yearly: 90,
       },
+      discount : 2,
     },
     {
       icon: advaced, 
@@ -36,6 +38,7 @@ const initialState: PlanState = {
         monthly: 12,
         yearly: 120,
       },
+      discount : 2,
     },
     {
       icon: pro,
@@ -44,6 +47,7 @@ const initialState: PlanState = {
         monthly: 15,
         yearly: 150,
       },
+      discount :2,
     },
   ],
   selectedPlan: "Arcade",
