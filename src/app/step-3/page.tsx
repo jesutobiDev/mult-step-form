@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { toggleAddon } from "@/store/slices/addonsSlice";
@@ -17,13 +16,13 @@ const Step3 = () => {
 
   return (
     <div className="flex flex-col h-full w-full">
-      <h1 className="text-marineBlue text-4xl font-semibold tracking-wide">Pick add-ons</h1>
-      <p className="text-coolGray mt-2 tracking-wide">Add-ons help enhance your gaming experience.</p>
+      <h1 className="text-marineBlue text-4xl font-semibold lg:tracking-wide">Pick add-ons</h1>
+      <p className="text-coolGray mt-2 lg:tracking-wide">Add-ons help enhance your gaming experience.</p>
       <form className="mt-6">
         {addons.map((addon, index) => (
           <div
             key={index}
-            className={`flex items-center mb-5 w-full border px-4 py-2 rounded-md gap-4 hover:border-purplishBlue cursor-pointer transition-all duration-300 ease-in-out ${
+            className={`flex items-center mb-5 w-full border px-4 py-4 rounded-md gap-4 hover:border-purplishBlue cursor-pointer transition-all duration-300 ease-in-out ${
               addon.selected ? "bg-magnolia border-purplishBlue" : "border-coolGray"
             }`}
             onClick={() => handleToggleAddon(addon.title)}
@@ -51,8 +50,8 @@ const Step3 = () => {
               />
             </div>
             <div>
-              <p>{addon.title}</p>
-              <p>{addon.description}</p>
+              <p className="font-semibold text-marineBlue">{addon.title}</p>
+              <p className="text-coolGray text-sm font-medium">{addon.description}</p>
             </div>
             <p className="text-purplishBlue ml-auto">
               {"+$"}

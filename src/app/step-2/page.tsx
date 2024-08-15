@@ -23,24 +23,24 @@ const Step2 = () => {
 
   return (
     <div className="flex flex-col h-full w-full">
-      <h1 className="text-marineBlue text-4xl font-semibold tracking-wide">
+      <h1 className="text-marineBlue text-4xl font-semibold lg:tracking-wide">
         Select your plan
       </h1>
-      <p className="text-coolGray mt-2 tracking-wide">
+      <p className="text-coolGray mt-2 lg:tracking-wide">
         You have the option of monthly or yearly billing
       </p>
-      <div className="flex gap-5 mt-6">
+      <div className="flex gap-5 mt-6 flex-col lg:flex-row">
         {plans.map((plan) => (
           <div
             key={plan.name}
-            className={`flex-1 h-44 rounded-xl p-4 flex flex-col justify-between border cursor-pointer hover:border-purplishBlue transition-all duration-300 ease-in-out ${
+            className={`flex-1 lg:h-44 rounded-xl p-4 flex gap-3 items-center lg:items-start lg:flex-col lg:justify-between border cursor-pointer hover:border-purplishBlue transition-all duration-300 ease-in-out ${
               plan.name === selectedPlan
                 ? "bg-magnolia border-purplishBlue"
                 : "bg-transparent border-coolGray"
             }`}
             onClick={() => planClick(plan.name)}
           >
-            <div className="w-10 h-10 overflow-hidden rounded-full">
+            <div className="w-12 h-12 lg:w-10 lg:h-10 overflow-hidden rounded-full">
               <Image
                 src={plan.icon}
                 alt={`${plan.name} icon`}
@@ -50,10 +50,10 @@ const Step2 = () => {
               />
             </div>
             <div>
-              <h2 className="text-marineBlue font-medium tracking-wide">
+              <h2 className="text-marineBlue font-semibold text-lg lg:text-normal lg:font-medium tracking-wide">
                 {plan.name}
               </h2>
-              <p className="text-marineBlue font-medium tracking-wide">
+              <p className="text-coolGray font-semibold text-lg lg:text-base lg:font-medium tracking-wide">
                 {"$"}
                 {plan.price[planDuration]}
                 {"/"}
@@ -63,7 +63,7 @@ const Step2 = () => {
           </div>
         ))}
       </div>
-      <div className="w-full bg-lightGray/20 rounded-md p-4 mt-10 flex gap-4 font-semibold items-center justify-center">
+      <div className="w-full bg-lightGray/20 rounded-md p-4 mt-10 flex gap-4 font-semibold items-center justify-center text-lg lg:text-base">
         <p
           className={`${
             planDuration === "monthly" ? "text-marineBlue" : "text-coolGray"

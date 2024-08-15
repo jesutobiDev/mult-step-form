@@ -21,10 +21,10 @@ const Step4 = () => {
 
   return (
     <div className="flex flex-col h-full w-full">
-      <h1 className="text-marineBlue text-4xl font-semibold tracking-wide">
+      <h1 className="text-marineBlue text-4xl font-semibold lg:tracking-wide">
         Finishing up
       </h1>
-      <p className="text-coolGray mt-2 tracking-wide">
+      <p className="text-coolGray mt-2 lg:tracking-wide">
         Double-check everything looks OK before confirming.
       </p>
       <div className="bg-lightGray/15 rounded-lg p-6 mt-6">
