@@ -34,8 +34,8 @@ export default function RootLayout({
             <div className="bg-white px-5 py-10 flex-1 lg:pt-10 lg:w-full h-fit rounded-lg">
               {children}
             </div>
+            <FormNavigation />
           </main>
-          <FormNavigation />
         </StoreProvider>
       </body>
     </html>
