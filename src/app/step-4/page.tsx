@@ -38,7 +38,7 @@ const Step4 = () => {
                 {")"}
               </span>
             </p>
-            <Link href="/step2" className="text-coolGray underline">
+            <Link href="/step-2" className="text-coolGray underline">
               Change
             </Link>
           </div>
